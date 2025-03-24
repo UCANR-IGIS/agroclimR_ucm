@@ -1,5 +1,5 @@
 ## Required packages from CRAN
-pkgs_req <- c("sf", "tidyverse", "tmap", "units", "zoo", "remotes", "degday", "chillR", "cimir", "here")
+pkgs_req <- c("sf", "tidyverse", "tmap", "units", "usethis", "remotes", "degday", "chillR", "cimir", "here", "openmeteo")
 
 ## See which ones are missing
 (pkgs_missing <- pkgs_req[!(pkgs_req %in% installed.packages()[,"Package"])])

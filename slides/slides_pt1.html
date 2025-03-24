@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content=" Andy Lyons March 24, 2025" />
+  <meta name="copyright" content="<a href='https://ucanr-igis.github.io/agroclimR_ucm/' style='color:#444;'>https://ucanr-igis.github.io/agroclimR_ucm/</a>"/>
+  <title>Agroclimate Metrics</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+              </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41HMZ3JJJ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-41HMZ3JJJ6');
+  </script>
+  <script src="lib/header-attrs-2.27/header-attrs.js"></script>
+  <link href="lib/slidy-2/styles/slidy.css" rel="stylesheet" />
+  <script src="lib/slidy-2/scripts/slidy.js"></script>
+  <script src="lib/slidy_shiny-1/slidy_shiny.js"></script>
+  <script src="lib/kePrint-0.0.1/kePrint.js"></script>
+  <link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <link href="lib/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+  <script src="lib/bsTable-3.3.7/bootstrapTable.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="slidy2022.css" />
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Computing Agroclimate Metrics:</h1>
+  <h1 class="subtitle">Intro to R</h1>
+  <p class="author">
+<img src='images/r_rstudio_400x120.png' style='width:400px; height:120px; margin-top:0.5em; margin-bottom:1em;'/><br/>Andy
+Lyons<br/>March 24, 2025
+  </p>
+  <p class="date"><a href='https://ucanr-igis.github.io/agroclimR_ucm/' style='color:darkgreen; font-size:105%; font-family:monospace;'>https://ucanr-igis.github.io/agroclimR_ucm/
+</a><br/><img src='images/igis-logo_550x58x256.png' style='margin-top:1.5em;'/></p>
+</div>
+<div id="about-me" class="slide section level1">
+<h1>About Me…</h1>
+<!-----
+\
+
+\
+
+![](./images/postit_bg-trans_with-note_320x320.png){style="display:block; margin:1em auto; border:none;"}
+---->
+<script>
+w3c_slidy.mouse_click_enabled = false;
+</script>
+<p><img src="images/anr_montage-wide_1120x520.png" /></p>
+</div>
+<div class="slide section level1">
+
+<p><img src="images/igis-team_2023-10-01_1160x650_q5.jpg" /></p>
+</div>
+<div id="goals" class="slide section level1">
+<h1>Goals</h1>
+<h2 id="working-with-r">Working with R</h2>
+<div class="indented2 li-single">
+<ul>
+<li>gain some experience doing data analysis with a command line
+language</li>
+<li>understand some of the vocabulary used in R</li>
+</ul>
+<div class="indented2 compact">
+<ul>
+<li>package<br />
+</li>
+<li>vector<br />
+</li>
+<li>function<br />
+</li>
+<li>argument<br />
+</li>
+<li>piping<br />
+</li>
+<li>tidyverse<br />
+</li>
+<li>data frame<br />
+</li>
+<li>tibble<br />
+</li>
+<li>data wrangling</li>
+<li>ggplot<br />
+</li>
+</ul>
+</div>
+</div>
+<h2 id="agroclimate-metrics">Agroclimate Metrics</h2>
+<div class="indented2 li-single">
+<ul>
+<li>examples of agroclimate metrics<br />
+</li>
+<li>what can be predicted with agroclimate metrics</li>
+<li>where to get weather data</li>
+<li>hindcast almond bloom</li>
+</ul>
+</div>
+<p><br />
+</p>
+<!---------------
+
+## Learning Strategy
+
+<div class="indented2">
+
+1\) Understand foundational terms and concepts
+
+2\) Hands-on practice
+
+3\) Discover RStudio's bells and whistles
+
+4\) Learn how to get help
+
+</div>
+
+\
+------>
+</div>
+<div id="r-and-rstudio" class="slide section level1">
+<h1>R and RStudio</h1>
+<div class="shaded-box" style="width:60%;">
+<p><strong>Why is R So Popular?</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>It’s free!</p></li>
+<li><p>Huge user community (especially academics)</p></li>
+<li><p>Thousands of add-ons (packages) that extend its
+capabilities</p></li>
+<li><p>Particularly strong in plotting and reporting</p></li>
+<li><p>Once you get over the initial hump, can work very
+efficiently</p></li>
+<li><p>Makes it easy to get your code “out there”</p></li>
+<li><p>Solid overall programming language</p></li>
+</ol>
+</div>
+<p><br />
+</p>
+</div>
+<div class="slide section level1">
+
+<div class="colleft">
+<p><img src="images/rlogo_120x120.png" /></p>
+<ul>
+<li>a programming language to write scripts</li>
+<li>software (“environment”) that interprets scripts written in R</li>
+<li>inspired by ‘S’ (1976), first beta version ~2000</li>
+<li><a href="https://rdrr.io/" target="_blank"><em>lots</em></a> of
+user-contributed packages:
+<ul>
+<li><em>CRAN</em>: &gt;22,000<br />
+</li>
+<li><em>Bioconductor</em>: &gt;2,000<br />
+</li>
+<li><em>R-Forge</em>: &gt;2,000</li>
+<li><em>GitHub</em>: &gt;85,400</li>
+</ul></li>
+</ul>
+</div>
+<div class="colright">
+<p><img src="images/rstudio-logo_300x100.png" /></p>
+<ul>
+<li>a very popular tool (IDE) to work with both R software and R
+scripts</li>
+<li>Version 1.0 came out in late 2016</li>
+<li>RStudio needs R to run, but you can use R without RStudio</li>
+<li><a href="https://posit.cloud/" target="_blank">Posit Cloud</a> - run
+RStudio through a browser</li>
+</ul>
+</div>
+<div class="colclear">
+
+</div>
+</div>
+<div class="slide section level1">
+
+<p><img src="images/posit-cloud_351x64.png" /></p>
+<div class="indented2">
+<ul>
+<li>online RStudio and Jupyter Notebooks</li>
+<li>requires an account (free account gets you 25 hrs / month)<br />
+</li>
+<li>98% same as RStudio Desktop<br />
+</li>
+<li>have to upload your data to the cloud<br />
+</li>
+<li>everything gets saved between sessions<br />
+</li>
+<li>workspaces and projects can be shared with collaborators<br />
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+</div>
+<div id="exercise-1-rstudio-exploration-and-basic-commands"
+class="slide section level1">
+<h1>Exercise 1: RStudio Exploration and Basic Commands</h1>
+<div class="shaded-box li-single" style="width:50%;">
+<p><em>Exercise 1 Topics</em></p>
+<ol style="list-style-type: decimal">
+<li>Using R like a fancy calculator<br />
+</li>
+<li>Order of operations</li>
+<li>Comparison operators</li>
+<li>Saving the results of expressions to variable</li>
+<li>Rules for naming variables</li>
+</ol>
+</div>
+<p>Posit Cloud project for this workshop:</p>
+<p style="font-family:monospace; font-size:150%; text-align:center;">
+<a href="https://bit.ly/agroclim-ucm"
+target="_blank">https://bit.ly/agroclim-ucm</a>
+</p>
+<p>After it opens:</p>
+<p><img src="images/rstudio-cloud_save-perm-copy_334x58.png"
+style="display:block; margin:1em auto; border:1px solid grey;" /></p>
+<p><br />
+</p>
+<!------
+# Break!
+
+![](images/stretch-break-1130x590x256.png){style="display:block; margin:1em auto; border:none;"}
+---->
+</div>
+<div id="exercise-review" class="slide section level1">
+<h1>Exercise Review</h1>
+<p>Key vocabulary terms are in <em>italic</em>.</p>
+<div class="indented2 li-single">
+<ul class="incremental">
+<li><p>When you enter an <em>expression</em> at the <em>console</em>, R
+will <em>evaluate</em> the expression, and <em>print the results</em> at
+the console.</p></li>
+<li><p>If you enter an <em>incomplete expression</em>, R will prompt you
+to finish the job by showing a ‘+’ symbol in the console</p></li>
+<li><p>You can <em>save</em> the results of an expression to an
+<em>object</em> (variable) using an <em>assignment operator</em><br/>  
+  <strong><code>=</code></strong><br/>    
+<strong><code>&lt;-</code></strong></p></li>
+<li><p>R objects can be named almost anything (but <em>no spaces</em> or
+<em>hyphens</em> please)</p></li>
+<li><p>R is <em>case sensitive</em> about
+<strong>everything</strong></p></li>
+<li><p>Once defined, R objects can be used in <em>subsequent
+expressions</em></p></li>
+<li><p>R objects can be <em>updated</em> (assigned a new value)</p></li>
+<li><p>R objects are only saved in <em>memory</em>, and will disappear
+when you close RStudio</p></li>
+<li><p>R has a few built-in <em>constants</em>, which are like objects
+but you don’t have to define them</p></li>
+</ul>
+<!------
+- *Comparison operators* return TRUE or FALSE (aka Logical values)
+
+<ul class="incremental">
+<li style="list-style:none; margin-left:4em;"><tt> >  &nbsp; &nbsp; >= &nbsp; &nbsp; < &nbsp; &nbsp; <= &nbsp; &nbsp; == </tt></li>
+</ul>
+---->
+</div>
+</div>
+<div id="r-packages" class="slide section level1">
+<h1>R Packages</h1>
+<p><img src="images/packages_200x202.png" style="float:right;" /></p>
+<p>Packages are what R calls <em>extensions</em> or
+<em>add-ons</em>.</p>
+<h2 id="whats-in-a-package">What’s in a package?</h2>
+<div class="indented2 li-single">
+<ul>
+<li>additional functions!<br />
+</li>
+<li>function help pages</li>
+<li>tutorials (Vignettes)</li>
+<li>datasets</li>
+</ul>
+</div>
+</div>
+<div id="functions" class="slide section level1">
+<h1>Functions</h1>
+<p>The keys to R’s superpowers are <strong>functions</strong>! There are
+<strong>four things</strong> you need to know to use a function:</p>
+<div style='position:relative; border:none; height:450px;width:901px; margin:0 auto; '>
+<img src="images/foo_01.png"/>
+<img src="images/foo_02.png" class="incremental stackme"/>
+<img src="images/foo_03.png" class="incremental stackme"/>
+<img src="images/foo_04.png" class="incremental stackme"/>
+<img src="images/foo_05.png" class="incremental stackme"/>
+</div>
+<p><br />
+</p>
+</div>
+<div id="which-function-should-i-use" class="slide section level1">
+<h1>Which function should I use?</h1>
+<center>
+<table>
+<tbody>
+<tr>
+<td style="text-align:right; font-style:italic; padding:10px; border:none;">
+Finding the right R function, half the battle is.<br><br>- Jedi MasteR
+Yoda
+</td>
+<td style="padding:5px;">
+<img src="images/yoda_bg-white_200x170.jpg" style="width:200px; height:170px;">
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Ask your friends</strong></p>
+<p><strong>Ask Google</strong></p>
+<p><strong>Cheatsheets!</strong></p>
+<div class="indented2 li-single">
+<ul>
+<li><a href="./extras/base-r.pdf" target="_blank" rel="noopener">Base R
+cheatsheet</a><br />
+</li>
+<li><a
+href="https://www.rforecology.com/uploads/The_essential_R_Cheatsheet_v1_0.pdf"
+target="_blank" rel="noopener">R for Ecology cheatsheet</a><br />
+</li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/"
+target="_blank" rel="noopener">RStudio cheatsheets</a></li>
+</ul>
+</div>
+<p><br />
+</p>
+</div>
+<div id="piping" class="slide section level1">
+<h1>Piping</h1>
+<p><img src="images/piping_200x44x256.png"
+style="float:right; margin-top:-2em;" /></p>
+<p><strong>Piping syntax</strong> is an alternative way of writing
+arguments into functions.</p>
+<style type="text/css">
+span.inline-code {
+  font-family: courier, monospace;
+  font-weight: bold;
+  color: darkgreen;
+}
+</style>
+<p>With piping, you use the pipe operator <span
+class="inline-code">|&gt;</span> (or <span
+class="inline-code">%&gt;%</span>) to ‘feed’ the result of one function
+into the next function.</p>
+<p>Piping allows the results of one function to be passed as the
+<strong>first argument</strong> of the next function. Hence a series of
+commands to be written like a sentence.</p>
+<h2 id="example">Example</h2>
+<p>Consider the expression:</p>
+<p style="text-align:center; font-family:Consolas, monospace; font-size:120%;">
+zoo(moo(boo(foo(99)),n=4))
+</p>
+<div style='position:relative; border:none; height:192px;width:797px; margin:0 auto; '>
+<img src="images/functions-piping_001.png" class="incremental stackme"/>
+<img src="images/functions-piping_002.png" class="incremental stackme"/>
+<img src="images/functions-piping_003.png" class="incremental stackme"/>
+<img src="images/functions-piping_004.png" class="incremental stackme"/>
+<img src="images/functions-piping_005.png" class="incremental stackme"/>
+</div>
+<p><br />
+</p>
+</div>
+<div id="data-frames-tibbles" class="slide section level1">
+<h1>Data Frames &amp; Tibbles</h1>
+<p><img src="images/table_500x169x256.png" /></p>
+<p>R has two data classes that organize data in rows and columns:</p>
+<div class="indented2">
+<ul>
+<li><strong>data frames / tibble</strong><br />
+</li>
+<li><strong>matrices</strong><br />
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<h2 id="key-concepts">Key concepts</h2>
+<div class="indented2 li-single">
+<ul>
+<li>columns of a data frame are <em>vectors</em><br />
+</li>
+<li>columns have <em>names</em><br />
+</li>
+<li>you can refer to columns by their <em>name</em> or
+<em>position</em></li>
+</ul>
+</div>
+<p><br />
+</p>
+</div>
+<div id="data-wrangling-what-do-we-mean" class="slide section level1">
+<h1>Data Wrangling: What do we mean?</h1>
+<p style="text-align:center; font-style:italic; font-weight:bold; line-height:180%;">
+<u>Whatever</u> is needed to get your data frame ready<br />
+for the function(s) you want to use for analysis and visualization.
+</p>
+<p><img src="images/jello_sculpture_575x340.jpg"
+style="display:block; margin:1em auto; border:none;" /></p>
+<p style="font-style:italic; text-align:center;">
+also called data munging, manipulation, transformation, etc.
+</p>
+<p>Often includes one or more of:</p>
+<div class="indented2 li-single">
+<ol style="list-style-type: decimal">
+<li>dropping columns<br />
+</li>
+<li>renaming columns<br />
+</li>
+<li>changing the order of columns<br />
+</li>
+<li>creating new columns with an expression<br />
+</li>
+<li>filtering rows<br />
+</li>
+<li>sorting rows<br />
+</li>
+<li>going from ‘long’ to ‘wide’ formats<br />
+</li>
+<li>joining data frames based on a common field<br />
+</li>
+<li>merging data frames together<br />
+</li>
+<li>splitting tables<br />
+</li>
+<li>aggregating rows into groups</li>
+</ol>
+</div>
+<p><br />
+</p>
+<div
+style="text-align:center; color:green; font-weight:bold; font-size:150%;">
+<p>Data wrangling is a pain!<br />
+</p>
+<p>But R (specifically the tidyverse packages) makes it (a lot)
+easier.</p>
+</div>
+<p><br />
+</p>
+</div>
+<div id="data-wrangling-with-dplyr" class="slide section level1">
+<h1>Data Wrangling with <code>dplyr</code></h1>
+<p>An alternative (usually better) way to wrangle data frames than base
+R.</p>
+<p>Part of the <a href="https://www.tidyverse.org"
+target="_blank">tidyverse</a>.</p>
+<p>Best way to familiarize yourself - explore the <a
+href="https://posit.co/wp-content/uploads/2022/10/data-transformation-1.pdf"
+target="_blank">cheat sheet</a>:</p>
+<div class="centerblock">
+<p><a
+href="https://posit.co/wp-content/uploads/2022/10/data-transformation-1.pdf"
+target="_blank" rel="noopener"><img
+src="images/data-transformation-600x464.png"
+style="border:1px solid grey;" /></a></p>
+</div>
+<p><br />
+</p>
+</div>
+<div id="popular-dplyr-functions" class="slide section level1">
+<h1>Popular <code>dplyr</code> Functions</h1>
+<h2 id="row-and-column-manipulations">Row and Column Manipulations</h2>
+<table class="tbl_compact">
+<tbody>
+<tr>
+<td style="text-align:left;width: 12em; ">
+subset rows
+</td>
+<td style="text-align:left;font-family: monospace;">
+filter(), slice()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+order rows
+</td>
+<td style="text-align:left;font-family: monospace;">
+arrange()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+pick column(s)
+</td>
+<td style="text-align:left;font-family: monospace;">
+select(), pull()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+add new columns
+</td>
+<td style="text-align:left;font-family: monospace;">
+mutate()
+</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="chaining-dplyr-functions">Chaining dplyr functions</h2>
+<div class="indented2 indented2r">
+<p>Most <code>dplyr</code> functions <em>take a tibble</em> as the first
+argument , and <em>return a tibble</em>.</p>
+<p>This makes them very <em>pipe friendly</em>.</p>
+</div>
+<p><br />
+</p>
+</div>
+<div id="forecasting-almond-bloom" class="slide section level1">
+<h1>Forecasting Almond Bloom</h1>
+<p>Theoretical example:</p>
+<h2 id="step-1-predict-when-dormancy-breaks">Step 1: Predict when
+dormancy breaks</h2>
+<div class="indented2">
+<ul>
+<li>Nonpareil dormancy breaks when <strong>23 chill portions</strong>
+accumulate starting September 1 (<a
+href="https://ucanr.edu/site/fruit-nut-research-information-center/fruit-nut-crop-chill-portions-requirements">source</a>)</li>
+</ul>
+</div>
+<p><img src="images/chillr_hex_173x200x256.png"
+style="display:block; margin:1em auto;" /></p>
+<p><br />
+</p>
+<h2 id="step-2-predict-when-bloom-occurs-after-dormancy">Step 2: Predict
+when bloom occurs after dormancy</h2>
+<div class="indented2">
+<ul>
+<li>Bloom can be predicted using a degree day model after dormancy
+ends</li>
+</ul>
+</div>
+<p><img src="images/degday_hexlogo_v1a_173x200.png"
+style="display:block; margin:1em auto;" /></p>
+<p><br />
+</p>
+</div>
+<div id="exercise-2-import-weather-data-compute-chill-portions"
+class="slide section level1">
+<h1>Exercise 2: Import Weather Data &amp; Compute Chill Portions</h1>
+<div class="shaded-box li-single" style="width:50%;">
+<p><em>Exercise 2 Topics</em></p>
+<ol style="list-style-type: decimal">
+<li>Run code in a script<br />
+</li>
+<li>Import saved weather data (CIMIS Station 206)</li>
+<li>Plot it</li>
+<li>Compute chill portions</li>
+</ol>
+</div>
+<p style="font-family:monospace; font-size:150%; text-align:center;">
+<a href="https://bit.ly/agroclim-ucm"
+target="_blank">https://bit.ly/agroclim-ucm</a>
+</p>
+</div>
+<div id="exercise-2-review" class="slide section level1">
+<h1>Exercise 2 Review</h1>
+<div class="indented2 li-single">
+<ul class="incremental">
+<li>importing CSV data is easy<br />
+</li>
+<li>there are good R packages to compute chill and degree days<br />
+</li>
+<li>often you have to wrangle the data for analysis<br />
+</li>
+<li>wrangling data with code is easy (once you know how to do it)<br />
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+</div>
+<div id="scripts" class="slide section level1">
+<h1>Scripts</h1>
+<p>Top five advantages of using scripts over the console:</p>
+<center>
+<ol reversed class="indented1 incremental" style="text-align:center; list-style-position:inside; font-size:130%; font-weight:bold;">
+<li style="color:#800080;">
+Easier to write (and fix!) your code
+</li>
+<li style="color:#f2b111;">
+You can add comments to remind yourself what each command is doing
+</li>
+<li style="color:#2167bb;">
+Reuse your own code
+</li>
+<li style="color:darkgreen;">
+You can add loops and if-then statements later on
+</li>
+<li style="color:crimson;">
+Tell your friends you’re a
+coder!<br/><br/><img src="images/lisa-simpson-coding_360x240x256.png" width="360" height="240"/>
+</li>
+</ol>
+</center>
+<p><br />
+</p>
+</div>
+<div id="exercise-3-compute-chill-portions-for-the-coming-decades"
+class="slide section level1">
+<h1>Exercise 3: Compute Chill Portions for the Coming Decades</h1>
+<p><img src="images/caladaptr-hexlogo_173x200.gif" /></p>
+</div>
+<div id="end" class="slide section level1">
+<h1>END!</h1>
+</div>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>
