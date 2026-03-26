@@ -45,10 +45,10 @@
 Lyons<br/>March 26, 2026
   </p>
   <p class="date"><a href='https://ucanr-igis.github.io/agroclimR_ucm/' style='color:darkgreen; font-size:105%; font-family:monospace;'>https://ucanr-igis.github.io/agroclimR_ucm/
-</a><br/><img src='images/igis-logo_550x58x256.png' style='margin-top:1.5em;'/></p>
+</a><br/><img src='images/igis-logo_400x120.png' style='margin-top:1.5em;'/></p>
 </div>
-<div id="about-me" class="slide section level1">
-<h1>About Me…</h1>
+<div class="slide section level1">
+
 <!-----
 \
 
@@ -59,11 +59,29 @@ Lyons<br/>March 26, 2026
 <script>
 w3c_slidy.mouse_click_enabled = false;
 </script>
-<p><img src="images/anr_montage-wide_1120x520.png" /></p>
+<p><img src="images/about-anr-2025_1200x660.png" /></p>
 </div>
 <div class="slide section level1">
 
-<p><img src="images/igis-team_2023-10-01_1160x650_q5.jpg" /></p>
+<p><img src="images/about-igis-2025_1200x680.jpg" /></p>
+</div>
+<div id="r-projects" class="slide section level1">
+<h1>R Projects</h1>
+<p><strong>Precision Irrigation Calculator</strong><br />
+<a href="https://ucanr-igis.shinyapps.io/irrigation-calc/"
+target="_blank">https://ucanr-igis.shinyapps.io/irrigation-calc/</a></p>
+<p><strong>Pistachio Nut Growth Calculator</strong><br />
+<a href="https://ucanr-igis.shinyapps.io/pist_gdd/"
+target="_blank">https://ucanr-igis.shinyapps.io/pist_gdd/</a></p>
+<p><strong>Tree Chill Calculator for Cherry</strong><br />
+<a href="https://ucanr-igis.shinyapps.io/cherrychill/"
+target="_blank">https://ucanr-igis.shinyapps.io/cherrychill/</a></p>
+<p><strong>Navel Orangeworm IPM Economics Calculator</strong><br />
+<a href="https://ucanr-igis.shinyapps.io/now_ipm_econ/"
+target="_blank">https://ucanr-igis.shinyapps.io/now_ipm_econ/</a></p>
+<p><strong>Chill Portions Under Climate Change Calculator</strong><br />
+<a href="https://ucanr-igis.shinyapps.io/chill/" target="_blank"
+rel="noopener">https://ucanr-igis.shinyapps.io/chill/</a></p>
 </div>
 <div id="goals" class="slide section level1">
 <h1>Goals</h1>
@@ -268,6 +286,354 @@ but you don’t have to define them</p></li>
 </ul>
 ---->
 </div>
+</div>
+<div id="agroclimate-metrics-1" class="slide section level1">
+<h1>Agroclimate Metrics</h1>
+<p>Agroclimate metrics reflect <em>weather driven factors</em> that
+<em>influence the development</em> of plants and insects.</p>
+<p>Examples:</p>
+<div class="indented2 li-single">
+<ul>
+<li>extreme heat days<br />
+</li>
+<li>tropical nights<br />
+</li>
+<li>heatwaves<br />
+</li>
+<li>accumulated degree days<br />
+</li>
+<li>frost days<br />
+</li>
+<li>winter chill<br />
+</li>
+<li>dates of first fall freeze &amp; last spring freeze<br />
+</li>
+<li>diurnal temperature range<br />
+</li>
+<li>evapotranspiration<br />
+</li>
+</ul>
+</div>
+<p>These are <em>abiotic</em> factors but they influence biotic factors
+that affect crops (like disease).</p>
+<p>The main ingredients of metrics are <em>measurements</em> of
+<em>weather variables</em> (like air temperature).</p>
+<p>We can compute them for the <em>past</em>, <em>present</em>, and
+<em>future</em>.</p>
+</div>
+<div id="why-are-they-useful" class="slide section level1">
+<h1>Why are they useful?</h1>
+<h2
+id="weather-derived-metrics-are-generally-good-predictors-of-growth">Weather
+derived metrics are generally good predictors of growth</h2>
+<div style="display:flex; justify-content:center; align-items:start;">
+<div style="flex-shrink:1;">
+<p><img src="./images/oblr-dev-rate-plot_540x400.png"
+style="border:1px solid gray;" /></p>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/zhang-2021_fig2c_454x320.png" /><br/><span
+style="font-size:80%; font-style:italic;">Pistachio nut embryo length vs
+degree days<br/>Zhang et al (<a
+href="https://doi.org/10.21273/HORTSCI15722-21" target="_blank"
+rel="noopener">2021</a>)</span></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+<p><br />
+</p>
+<h2 id="managing-farm-operations">Managing Farm Operations</h2>
+<div class="indented2">
+<h3 id="optimize-pest-management">Optimize Pest Management</h3>
+<div class="indented2 li-single">
+<ul>
+<li>Timing is everything in integrated pest management</li>
+<li>Save $$ and reduce harmful side effects</li>
+</ul>
+</div>
+<p><img src="./images/codling-moth-life-cycle-web_688x400x256.png"
+style="display:block; margin:1em auto;" /></p>
+<p><br />
+</p>
+<h3 id="scheduling">Scheduling</h3>
+<div
+style="display:flex; justify-content:start; align-items:start; margin-left:2em;">
+<div style="flex-shrink:1;">
+<ul>
+<li>Irrigation scheduling and amounts<br />
+</li>
+<li>When to start deficit irrigation<br />
+</li>
+<li>Put out traps<br />
+</li>
+<li>Schedule harvest crews<br />
+</li>
+<li>Plan for the coming season<br />
+</li>
+</ul>
+</div>
+<div style="flex-shrink:1; margin-left:2em;">
+<p><img src="./images/drip-irrigation-trees_280x280_q10.jpg" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+</div>
+<p><!---- heading 2 div class="indented2" ----></p>
+<p><br />
+</p>
+<h2 id="understanding-the-effects-of-climate-change">Understanding the
+Effects of Climate Change</h2>
+<style type="text/css">
+a.doi {
+  font-size:75%;
+  font-style:normal;
+}
+table.pubcites {
+  max-width:1000px;
+  border-collapse: collapse;
+}
+table.pubcites > tbody > tr {
+  vertical-align: top;
+}
+table.pubcites > tbody > tr > td {
+  padding: 1.5em 0.5em 1.5em;
+  color:darkgreen;
+  border-bottom:1px solid #ddd;
+  font-style:italic;
+}
+td.papertb {
+  line-height:90%;
+}
+</style>
+<table class="pubcites">
+<tr>
+<td class="papertb">
+<img src="./images/mcbride_street-trees_445x117x256.png"/><br/><a href="https://doi.org/10.1016/j.ufug.2018.07.020" target="_blank" class="doi">https://doi.org/10.1016/j.ufug.2018.07.020</a>
+</td>
+<td>
+Where can I go today to see the climate my city will have 50 years from
+now?
+</td>
+</tr>
+<tr>
+<td>
+How many generations of Navel Orangeworm will growers have to deal with
+in the coming decades?
+</td>
+<td class="papertb">
+<img src="./images/pathak_now_444x100x256.png"/><br/><a href="https://doi.org/10.1016/j.scitotenv.2020.142657" target="_blank" class="doi">https://doi.org/10.1016/j.scitotenv.2020.142657</a>
+</td>
+</tr>
+<tr>
+<td class="papertb">
+<img src="./images/luedeling-chill_452x88x256.png"/><br/><a href="https://doi.org/doi:10.1371/journal.pone.0020155" target="_blank" class="doi">https://doi.org/doi:10.1371/journal.pone.0020155</a>
+</td>
+<td>
+How much chill can we expect in the coming decades? Will there be enough
+to have a economically viable farming operation?
+</td>
+</tr>
+<tr>
+<td>
+What kind of frost exposure will we see mid-century?
+</td>
+<td class="papertb">
+<img src="./images/parker_frost_444x117x256.png"/><br/><a href="https://doi.org/10.1016/j.scitotenv.2020.143971" target="_blank" class="doi">https://doi.org/10.1016/j.scitotenv.2020.143971</a>
+</td>
+</tr>
+<tr>
+<td class="papertb">
+<img src="./images/parker-specialty-crops_445x100x256.png"/><br/><a href="https://doi.org/10.3390/agronomy12010205" target="_blank" class="doi">https://doi.org/10.3390/agronomy12010205</a>
+</td>
+<td>
+What is the ‘new normal’ for agroclimatic metrics for specialty crops?
+</td>
+</tr>
+</table>
+</div>
+<div id="why-would-you-want-to-do-these-in-r"
+class="slide section level1">
+<h1>Why would you want to do these in R?</h1>
+<div style="display:flex; justify-content:center; align-items:center;">
+<div style="flex-shrink:1;">
+<p>R is an <em>extremely</em> flexible computing environment,<br/>with
+strengths in:</p>
+<div class="indented2">
+<ul>
+<li>data manipulation<br />
+</li>
+<li>visualization<br />
+</li>
+<li>data modeling<br />
+</li>
+<li>integrating other data<br />
+</li>
+<li>widely taught<br />
+</li>
+<li>strong user community</li>
+</ul>
+</div>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/carpentry-shop_542x360_q10.jpg" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+<hr style="width:50%; margin:2em auto;"/>
+<div style="text-align:center; font-weight:bold; font-size:110%;">
+Access weather and climate data
+</div>
+<div
+style="font-family:monospace; color:#444; text-align:center; line-height:150%;">
+<p><a href="https://ucanr-igis.github.io/caladaptr/" target="_blank"
+rel="noopener" style="padding:10px;"><img
+src="images/caladaptr-hexlogo_173x200.gif" height="160" /></a> <a
+href="https://cran.r-project.org/package=cimir" target="_blank"
+rel="noopener" style="padding:10px;"><img
+src="images/cimir_logo_140x160.png" /></a> <a
+href="https://bookdown.org/brry/rdwd/" target="_blank" rel="noopener"
+style="padding:10px;"><img src="./images/rdwd_hex_140x160.png" /></a> <a
+href="https://cran.r-project.org/package=BrazilMet" target="_blank"
+rel="noopener" style="padding:10px;"><img
+src="./images/BrazilMet_hexlogo_171x160x256.png" /></a> <a
+href="https://docs.ropensci.org/weathercan/" target="_blank"
+rel="noopener" style="padding:10px;"><img
+src="./images/weathercan_logo_139x160.png" /></a><br/><br />
+<a href="https://cran.r-project.org/package=owmr">owmr</a>:
+OpenWeatherMap API Wrapper<br/> <a
+href="https://cran.r-project.org/package=rnoaa">rnoaa</a>: ‘NOAA’
+Weather Data from R<br/> <a
+href="https://cran.r-project.org/package=riem">riem</a>: Accesses
+Weather Data from the Iowa Environment Mesonet<br/> …plus many
+others<br/><br/> Or write your own!</p>
+</div>
+<hr style="width:50%; margin:2em auto;"/>
+<div style="display:flex; justify-content:center; align-items:start;">
+<div style="flex-shrink:1; padding:0.5em;">
+<p><img src="./images/shiny-hex_173x200.png"
+style="display:block; margin:1em auto;" /></p>
+</div>
+<div style="flex-shrink:1;">
+<p><a href="https://ucanr-igis.shinyapps.io/pist_gdd/" target="_blank"
+rel="noopener"><img
+src="./images/2022-07-30%20pist_gdd%20thumbnail%20490x860x256.png"
+style="border:2px solid grey; padding:0.5em; width:360px;" /></a></p>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/irrigation-calc-phone_bg-trans_300x562.png" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+</div>
+<div id="weather-data" class="slide section level1">
+<h1>Weather Data</h1>
+<h2 id="station-based">Station Based</h2>
+<div style="display:flex; justify-content:start; align-items:start;">
+<div style="flex-shrink:1; margin-left:2em;">
+<ul>
+<li>Highest quality data are from sensors<br/>mounted on weather
+stations</li>
+<li>Many public and private networks</li>
+<li>Many are online<br />
+</li>
+<li>Closer is better</li>
+<li>On-site is best<br />
+</li>
+<li>Near ground is good<br />
+</li>
+</ul>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/cimis-station_250x376_q10.jpg" /></p>
+</div>
+<div style="flex-shrink:1; margin-left:1em;">
+Typical variables:
+<div class="li-single indented1">
+<ul>
+<li>air temperature<br />
+</li>
+<li>solar radiation<br />
+</li>
+<li>relative humidity<br />
+</li>
+<li>dew point<br />
+</li>
+<li>precipitation<br />
+</li>
+<li>soil temperature<br />
+</li>
+<li>soil moisture<br />
+</li>
+<li>vapor pressure<br />
+</li>
+<li>wind speed<br />
+</li>
+<li>wind direction<br />
+</li>
+</ul>
+</div>
+</div>
+</div>
+<p><!-- flex div container --></p>
+<h2 id="interpolated-gridded-data">Interpolated / Gridded Data</h2>
+<div style="display:flex; justify-content:start; align-items:start;">
+<div style="flex-shrink:1; margin-left:2em;">
+<ul>
+<li>based on weather station data with modeling<br />
+</li>
+<li><a href="https://prism.oregonstate.edu/" target="_blank"
+rel="noopener">PRISM</a> (continental USA, 1979 - present, 800m &amp;
+4km)</li>
+<li><a href="https://www.climatologylab.org/gridmet.html"
+target="_blank" rel="noopener">gridMET</a> (continental USA, based on
+PRISM)</li>
+<li><a href="https://psl.noaa.gov/data/gridded/data.livneh.html"
+target="_blank" rel="noopener">Livneh</a> (continental USA, 1950–2013,
+6km)</li>
+</ul>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/prism-tmean-usa_450x320x256.png" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+<h2 id="accessing-data">Accessing Data</h2>
+<div
+style="display:flex; justify-content:start; align-items:start; margin-left:2em;">
+<div style="flex-shrink:1;">
+<p>File server</p>
+<div class="li-single indented1">
+<ul>
+<li>files may cover a large area</li>
+<li>files may be big</li>
+<li>you have to read the file and<br/>extract the AOI yourself</li>
+</ul>
+</div>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/file-server_600x265x256.png" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
+<div
+style="display:flex; justify-content:start; align-items:start; margin-left:2em;">
+<div style="flex-shrink:1;">
+<p>API service</p>
+<div class="li-single indented1">
+<ul>
+<li>communication between computers</li>
+<li>just get what you need</li>
+<li>may require registration<br />
+</li>
+<li>may require a subscription fee</li>
+</ul>
+</div>
+</div>
+<div style="flex-shrink:1;">
+<p><img src="./images/api-diagram_500x113x256.png" /></p>
+</div>
+</div>
+<p><!-- flex div container --></p>
 </div>
 <div id="r-packages" class="slide section level1">
 <h1>R Packages</h1>
