@@ -10,23 +10,42 @@ library(chillR)
 ##  - see https://cimis.water.ca.gov/Stations.aspx
 ##  - more data available at https://fruitsandnuts.ucdavis.edu/station-data
 
-stn206_dly_minmax_wyr25_tbl <- read_csv("exercises/data/stn206_dly_minmax_wyr25.csv")
+stn206_dly_minmax_wyr26_tbl <- read_csv("exercises/data/stn206_dly_minmax_wyr26.csv")
 
-head(stn206_dly_minmax_wyr25_tbl)
+## View the first few rows
 
-View(stn206_dly_minmax_wyr25_tbl)
+head(stn206_dly_minmax_wyr26_tbl)
 
-range(stn206_dly_minmax_wyr25_tbl$dt)
+## View all the dates
+
+View(stn206_dly_minmax_wyr26_tbl)
+
+## View a summary of each column
+
+summary(stn206_dly_minmax_wyr26_tbl)
+
+## What was the range of dates
+
+range(stn206_dly_minmax_wyr26_tbl$dt)
 
 ################################
 ## Plot temperature
 
-ggplot(stn206_dly_minmax_wyr25_tbl, aes(x = dt, y = tasmin_f)) +
+ggplot(stn206_dly_minmax_wyr26_tbl, aes(x = dt, y = tasmin_f)) +
   geom_line() +
   xlab("2024-25") +
   ylab("temp (F)") +
   labs(title = "Minimum Daily Temperature",
        subtitle = "CIMIS Station 206") 
+
+## Which days was the temperature below 32?
+
+stn206_dly_minmax_wyr26_tbl$tasmin_f <= 32
+
+## How many days did it go below 32?
+
+sum(stn206_dly_minmax_wyr26_tbl$tasmin_f <= 32, na.rm = TRUE)
+
 
 ###############################
 ## Chill portions
@@ -34,7 +53,7 @@ ggplot(stn206_dly_minmax_wyr25_tbl, aes(x = dt, y = tasmin_f)) +
 
 ## Step 1: Reformat the tibble for chillr
 
-stn206_dly4chillr_tbl <- stn206_dly_minmax_wyr25_tbl |> 
+stn206_dly4chillr_tbl <- stn206_dly_minmax_wyr26_tbl |> 
   mutate(Year = as.integer(year(dt)), 
          Month = as.integer(month(dt)), 
          Day = day(dt),

@@ -20,7 +20,7 @@ cimis_stn_id <- 206
 cimis_stn_name <- "denair2"
 
 ## Define the start and end dates
-start_date <- make_date(2024, 9, 1)
+start_date <- make_date(2025, 9, 1)
 end_date <- Sys.Date() - 1
 
 ## Define the data directory
@@ -28,7 +28,7 @@ data_dir <- here::here("exercises/data")
 dir.exists(data_dir)
 
 ## Define the CSV file name
-dly_minmax_csv <- file.path(data_dir, "stn206_dly_minmax_wyr25.csv")
+dly_minmax_csv <- file.path(data_dir, "stn206_dly_minmax_wyr26.csv")
 dly_minmax_csv
 file.exists(dly_minmax_csv)
 
